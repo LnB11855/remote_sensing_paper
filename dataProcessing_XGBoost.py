@@ -308,15 +308,5 @@ X_train=pd.concat((x1,x3))
 y_train=pd.concat((y1,y3))
 X_test=pd.concat((x2,x4))
 y_test=pd.concat((y2,y4))
-
-
-start_time = time.time()
-threadHold = 5
-
-
-# x1, x2, y1, y2 = train_test_split(Input, Output, test_size=0.1, random_state=99)
-
-dtrain = xgb.DMatrix(X_train, y_train)
-dvalid = xgb.DMatrix(X_test, y_test)
-
-watchlist = [(dtrain, 'train'), (dvalid, 'valid')]
+with open('dataXGBoost'+str(seq_length)+'.pickle', 'wb') as f:
+    pickle.dump([X_train, X_test, y_train,y_test], f)
