@@ -20,7 +20,7 @@ from keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 seq_length=4
 with open('/dataset.pickle', 'rb') as f:
-    X_train, X_test, Y_train, Y_test=pickle.load(f)
+    X_train, X_test, y_train, y_test=pickle.load(f)
 model=Sequential()
 model.add(Dense(12, input_dim=14, activation='relu'))
 model.add(Dropout(0.2))
