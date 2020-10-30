@@ -21,6 +21,7 @@ from keras.layers import Dense, Dropout, LSTM, Activation,GRU, Bidirectional
 from keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 seq_length=4
+timestamp=seq_length
 with open('dataGRU'+str(seq_length)+'.pickle', 'rb') as f:
     X_train, X_test, y_train, y_test=pickle.load(f)
 model = Sequential()
