@@ -6,6 +6,7 @@ import gc
 import xgboost as xgb
 from xgboost import plot_importance
 import numpy as np
+import pickle
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler,normalize
@@ -305,3 +306,6 @@ X_train=pd.concat((x1,x3))
 y_train=pd.concat((y1,y3))
 X_test=pd.concat((x2,x4))
 y_test=pd.concat((y2,y4))
+
+with open('dataDNN'+str(seq_length)+'.pickle', 'wb') as f:
+    pickle.dump([X_train, X_test, y_train,y_test], f)
