@@ -6,7 +6,7 @@ import gc
 import xgboost as xgb
 from xgboost import plot_importance
 import numpy as np
-
+import pickle
 from sklearn.preprocessing import StandardScaler,normalize
 from sklearn.model_selection import train_test_split
 import pandas as pd
@@ -21,6 +21,14 @@ seq_length=4
 
 with open('dataXGBoost'+str(seq_length)+'.pickle', 'rb') as f:
     X_train, X_test, y_train, y_test=pickle.load(f)
+start_time = time.time()
+threadHold = 5
+
+
+# x1, x2, y1, y2 = train_test_split(Input, Output, test_size=0.1, random_state=99)
+
+dtrain = xgb.DMatrix(X_train, y_train)
+dvalid = xgb.DMatrix(X_test, y_test)
 result=np.zeros((20,16))
 result_2=np.zeros((40,y_test.shape[0]))
 for i in range(1):
