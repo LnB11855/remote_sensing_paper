@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import keras
 import gc
 import xgboost as xgb
+import pickle
 from xgboost import plot_importance
 import numpy as np
 from sklearn.metrics import confusion_matrix
@@ -367,3 +368,5 @@ X_train=np.concatenate((X_train1,X_train2))
 y_train=np.concatenate((y_train1,y_train2))
 X_test=np.concatenate((X_test1,X_test2))
 y_test=np.concatenate((y_test1,y_test2))
+with open('dataGRU'+str(seq_length)+'.pickle', 'wb') as f:
+    pickle.dump([X_train, X_test, y_train,y_test], f)
