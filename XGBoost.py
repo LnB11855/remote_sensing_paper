@@ -19,7 +19,7 @@ from keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 seq_length=4
 
-with open('dataXGBoost'+str(seq_length)+'.pickle', 'rb') as f:
+with open('./ProcessedData/dataXGBoost'+str(seq_length)+'.pickle', 'rb') as f:
     X_train, X_test, y_train, y_test=pickle.load(f)
 start_time = time.time()
 threadHold = 5
