@@ -18,6 +18,9 @@ from keras.layers import Dense, Dropout, LSTM, Activation,GRU
 from keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 seq_length=4
+
+with open('dataXGBoost'+str(seq_length)+'.pickle', 'rb') as f:
+    X_train, X_test, y_train, y_test=pickle.load(f)
 result=np.zeros((20,16))
 result_2=np.zeros((40,y_test.shape[0]))
 for i in range(1):
